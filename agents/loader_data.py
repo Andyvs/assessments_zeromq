@@ -44,6 +44,7 @@ session = Session()
 somestring = '3/1/2008'
 dob = datetime.datetime.strptime(somestring, '%d/%m/%Y').date()
 
+
 # Add an instance of fooditem
 table_det1 = MemberDetails(MEMBER_ID=9, FIRST_NAME='Anand', LAST_NAME='VS', \
                           DOB=dob, ADDRESS='Basavangudi', CITY='Bangalore', \

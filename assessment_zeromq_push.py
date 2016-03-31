@@ -1,14 +1,17 @@
 # This is the simple program for ZeroMQ module with Pushing other server.
 
-import sys
-import time
 import zmq
-
+import random
+import time
+ 
 context = zmq.Context()
-
-receiver = context.socket(zmq.PULL)
-receiver.bind("tcp://127.0.0.1:5558")
-
+ 
+ 
+sink = context.socket(zmq.PUSH)
+sink.connect("tcp://localhost:5558")
+ 
+random.seed()
+ 
 while True:
-    print receiver.recv()
-
+    workload = random.randint(1, 100)
+    sink.send(str(workload))
